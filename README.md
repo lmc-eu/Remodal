@@ -66,9 +66,9 @@ Or:
 
 ```html
 <script>
-    window.remodalGlobals = {
-        namespace: "modal",
-        defaults: {
+    window.REMODAL_GLOBALS = {
+        NAMESPACE: 'modal',
+        DEFAULTS: {
             hashTracking: false
         }
     };
