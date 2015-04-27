@@ -29,6 +29,13 @@
         lookup: []
     };
 
+    /**
+     * State of remodal
+     * @public
+     * @type {Boolean}
+     */
+    var IS_OPENED = false;
+
     var current, // current modal
         scrollTop; // scroll position
 
@@ -201,7 +208,7 @@
         });
 
         $(document).bind("keyup." + pluginName, function (e) {
-            if (e.keyCode === 27 && self.settings.closeOnEscape) {
+            if (e.keyCode === 27 && self.settings.closeOnEscape && IS_OPENED === true) {
                 self.close();
             }
         });
@@ -229,6 +236,7 @@
         this.busy = true;
 
         this.modal.trigger("open");
+        IS_OPENED = true;
 
         var id = this.modal.attr("data-" + pluginName + "-id");
         if (id && this.settings.hashTracking) {
@@ -267,6 +275,7 @@
         this.busy = true;
 
         this.modal.trigger("close");
+        IS_OPENED = false;
 
         if (this.settings.hashTracking &&
             this.modal.attr("data-" + pluginName + "-id") === location.hash.substr(1)) {
