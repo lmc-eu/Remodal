@@ -11,5 +11,6 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "main": "dist/jquery.remodal.js"
 }
